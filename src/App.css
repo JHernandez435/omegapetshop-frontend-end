@@ -4,7 +4,7 @@
 
 .bg-img {
   /* The image used */
-  background-image: url(./images/BG_Mascotas.png);
+  background-image: url(./assets/BG_Mascotas.png);
   min-height: 380px;
   /* Center and scale the image nicely */
   background-position: center;
@@ -16,7 +16,7 @@
 
 .bg-ventanas {
   /* Imagen usada como fondo de los formularios */
-  background-image: url(./images/bg_Ventanas.jpg);
+  background-image: url(./assets/bg_Ventanas.jpg);
   min-height: 780px;
   /* Queda centrada y no se repite */
   background-position: center;
