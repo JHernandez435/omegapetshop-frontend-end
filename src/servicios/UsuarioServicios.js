@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const UsuariosServicios = {};
-// const URL = "http://localhost:8080/api/clientes/";
-const URI = "https://omegapetshop-api.herokuapp.com/";
+// const URL = "http://localhost:8000/api/clientes/";
+const URI = "https://omegapetshop-api.herokuapp.com";
 
 
 
