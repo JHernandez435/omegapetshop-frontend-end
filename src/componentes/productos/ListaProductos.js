@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ProductosServicios from "../../servicios/ProductosServicios";
 import EstadoDatos from "../../enums/EstadoDatos";
+import FondoVentanas from "../general/FondoVentanas";
 
 const ListaProductos = () => {
 	const [productos, setProductos] = useState([]);
@@ -60,6 +61,7 @@ const ListaProductos = () => {
 	}, [])
 
 	return (
+		<div className="myDiv">
 		<div className="container">
 			<h3>Lista de productos <a className="btn btn-sm btn-primary" href="/productos/form"><i className="bi bi-plus-square" /> Nuevo producto</a></h3>
 			<form>
@@ -124,6 +126,8 @@ const ListaProductos = () => {
 					</div>
 				</div>
 			</div>
+		</div>
+        <FondoVentanas />;
 		</div>
 	)
 }

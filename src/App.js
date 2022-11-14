@@ -3,7 +3,6 @@ import Catalogo from "./componentes/productos/Catalogo";
 import ListaCategorias from "./componentes/categorias/ListaCategorias";
 import ListaProductos from "./componentes/productos/ListaProductos";
 import Header from "./componentes/general/Header";
-import Cuerpo from "./componentes/general/Cuerpo";
 import FormCategorias from "./componentes/categorias/FormCategorias";
 import FormProductos from "./componentes/productos/FormProductos";
 import Login from "./componentes/general/Login";
@@ -14,6 +13,7 @@ import { ContextoUsuario } from "./componentes/general/ContextoUsuario";
 import { useState } from "react";
 import ListadoUsuarios from "./componentes/usuarios/ListadoUsuarios";
 import FormUsuarios from "./componentes/usuarios/FormUsuarios";
+import Footer from "./componentes/general/Footer";
 import './App.css';
 
 const App = () => {
@@ -44,7 +44,7 @@ const App = () => {
           </Routes>
         </ContextoUsuario.Provider>
       </BrowserRouter>
-      <Cuerpo />
+      <Footer />
     </>
   );
 }

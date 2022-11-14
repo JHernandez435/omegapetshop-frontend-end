@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import CategoriasServicios from "../../servicios/CategoriasServicios";
 import EstadoDatos from "../../enums/EstadoDatos";
+import FondoVentanas from "../general/FondoVentanas";
 
 const ListaCategorias = () => {
 	const [categorias, setCategorias] = useState([]);
@@ -44,6 +45,7 @@ const ListaCategorias = () => {
 	}, []);
 
 	return (
+		<div className="myDiv">
 		<div className="container">
 			<h3>Lista de categorías <a className="btn btn-sm btn-primary" href="/categorias/form"><i className="bi bi-plus-square" /> Nueva categoría</a></h3>
 			<table className="table table-sm">
@@ -98,6 +100,8 @@ const ListaCategorias = () => {
 					</div>
 				</div>
 			</div>
+		</div>
+		<FondoVentanas />;
 		</div>
 	)
 }

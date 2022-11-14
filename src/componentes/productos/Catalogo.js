@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import EstadoDatos from "../../enums/EstadoDatos";
 import ProductosServicios from "../../servicios/ProductosServicios";
 import TarjetaProducto from "./TarjetaProducto";
+import Cuerpo from "../general/Cuerpo";
 
 
 const Catalogo = () => {
@@ -54,6 +55,8 @@ const Catalogo = () => {
 	}, [])
 
 	return (
+			<div>
+				<Cuerpo/>
 		<main id="catalogo" className="container-fluid">
 			<form className="mb-2">
 				<div className="d-flex">
@@ -74,6 +77,7 @@ const Catalogo = () => {
 				}
 			</div>
 		</main>
+		</div>
 	);
 }
 

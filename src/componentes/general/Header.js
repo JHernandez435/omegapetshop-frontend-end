@@ -34,7 +34,7 @@ const Header = () => {
     }, [])
 
     return (
-        <nav className="navbar navbar-dark navbar-expand-lg bg-black mb-3">
+        <nav className="navbar navbar-dark navbar-expand-lg bg-black">
             <div className="container-fluid">
                 <a className="navbar-brand" href="/">
                     <img src={logo} alt="logo" width="500" />

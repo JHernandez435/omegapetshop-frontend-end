@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import EstadoDatos from "../../enums/EstadoDatos";
 import CategoriasServicios from "../../servicios/CategoriasServicios";
 import ProductosServicios from "../../servicios/ProductosServicios";
+import FondoVentanas from "../general/FondoVentanas";
 
 const FormProductos = () => {
     const navigateTo = useNavigate();
@@ -112,6 +113,7 @@ const FormProductos = () => {
     }, [])
 
     return (
+        <div className="myDiv">
         <div className="container">
             <div className="row">
                 <div className="col-9">
@@ -172,6 +174,8 @@ const FormProductos = () => {
                     <img src={publicImgsURL+imagen} alt="Ingrese imagen de carpeta pública" width="100%"/>
                 </div>
             </div>
+        </div>
+        <FondoVentanas />;
         </div>
     )
 }

@@ -17,7 +17,7 @@
 .bg-ventanas {
   /* Imagen usada como fondo de los formularios */
   background-image: url(./assets/bg_Ventanas.jpg);
-  min-height: 780px;
+  min-height: 600px;
   /* Queda centrada y no se repite */
   background-position: center;
   background-repeat: no-repeat;
@@ -28,7 +28,7 @@
 }
 
 .myDiv {
-  border: 5px outset rgb(70, 70, 71);
+  border: 5px outset rgb(255, 238, 0);
   background-color: lightblue;
   text-align: center;
 }

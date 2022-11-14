@@ -2,14 +2,16 @@ import { useEffect } from "react";
 import { useState } from "react";
 import EstadoDatos from "../../enums/EstadoDatos";
 import CategoriasServicios from "../../servicios/CategoriasServicios";
-const publicImgsURL = process.env.PUBLIC_URL+"/imgs/";
+import Cuerpo from "../general/Cuerpo";
+const publicImgsURL = process.env.PUBLIC_URL + "/imgs/";
+
 
 const MosaicoCategorias = () => {
-    const [estado, setEstado] = useState(EstadoDatos.CARGANDO);
-    const [categorias, setCategorias] = useState([]);
+	const [estado, setEstado] = useState(EstadoDatos.CARGANDO);
+	const [categorias, setCategorias] = useState([]);
 
-    const cargarCategorias = async () => {
-        setEstado(EstadoDatos.CARGANDO);
+	const cargarCategorias = async () => {
+		setEstado(EstadoDatos.CARGANDO);
 		try {
 			const resultado = await CategoriasServicios.listarCategoriasHabilitadas();
 			if (resultado.data.length === 0) {
@@ -23,31 +25,34 @@ const MosaicoCategorias = () => {
 			setEstado(EstadoDatos.ERROR);
 			console.log(error);
 		}
-    }
+	}
 
-    useEffect(()=> {
-        cargarCategorias();
-    }, [])
+	useEffect(() => {
+		cargarCategorias();
+	}, [])
 
-    return (
-        <main id="catalogo" className="container-fluid">
-            <div className="row mb-2">
-				{
-					estado===EstadoDatos.CARGANDO ? (<div>Cargando...</div>) 
-				: 
-					estado===EstadoDatos.VACIO ? (<div>No hay datos</div>) 
-				:
-					categorias.map((categoria) => (
-						<div className="col-2">
-                            <a href={"/?q="+categoria.nombre}>
-                                <img src={publicImgsURL+categoria.imagen} alt="Ingrese imagen de carpeta pública" width="100%"/>
-                            </a>
-                        </div>
-					))
-				}
-			</div>
-        </main>
-    )
+	return (
+		<div>
+			<Cuerpo />
+			<main id="catalogo" className="container-fluid">
+				<div className="row mb-2">
+					{
+						estado === EstadoDatos.CARGANDO ? (<div>Cargando...</div>)
+							:
+							estado === EstadoDatos.VACIO ? (<div>No hay datos</div>)
+								:
+								categorias.map((categoria) => (
+									<div className="col-2">
+										<a href={"/?q=" + categoria.nombre}>
+											<img src={publicImgsURL + categoria.imagen} alt="Ingrese imagen de carpeta pública" width="100%" />
+										</a>
+									</div>
+								))
+					}
+				</div>
+			</main>
+		</div>
+	)
 }
 
 export default MosaicoCategorias;
