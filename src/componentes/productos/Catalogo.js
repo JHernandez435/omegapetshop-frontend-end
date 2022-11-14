@@ -4,6 +4,9 @@ import { useLocation } from "react-router-dom";
 import EstadoDatos from "../../enums/EstadoDatos";
 import ProductosServicios from "../../servicios/ProductosServicios";
 import TarjetaProducto from "./TarjetaProducto";
+import Cuerpo from "../general/Cuerpo";
+// import './App.css';
+
 
 const Catalogo = () => {
 	const query = useLocation();
@@ -11,7 +14,7 @@ const Catalogo = () => {
 	const [productos, setProductos] = useState([]);
 	const [criterio, setCriterio] = useState("");
 
-	const cargarProductos = async (categoria="") => {
+	const cargarProductos = async (categoria = "") => {
 		setEstado(EstadoDatos.CARGANDO);
 		try {
 			let resultado;
@@ -50,29 +53,33 @@ const Catalogo = () => {
 	useEffect(() => {
 		const catBuscar = query.search.replace("?q=", "");
 		cargarProductos(catBuscar);
-	}, [])
+	}, )
 
 	return (
-		<main id="catalogo" className="container-fluid">
-			<form className="mb-2">
-				<div className="d-flex">
-					<label className="form-label me-2" htmlFor="criterio">Buscar producto</label> 
-					<input className="form-control form-control-sm" style={{maxWidth:"300px"}} onChange={cambiarCriterio} value={criterio} type="text" id="criterio" name="criterio" />
-					<button onClick={buscarProductos} className="btn btn-sm btn-primary"><i className="bi bi-search" /></button>
+		<div>
+			<Cuerpo />
+			<main id="catalogo" className="container-fluid">
+				<form className="mb-2">
+					<div className="d-flex">
+						<label className="form-label me-2" htmlFor="criterio">Buscar producto</label>
+						<input className="form-control form-control-sm" style={{ maxWidth: "300px" }} onChange={cambiarCriterio} value={criterio} type="text" id="criterio" name="criterio" />
+						<button onClick={buscarProductos} className="btn btn-sm btn-primary"><i className="bi bi-search" /></button>
+					</div>
+				</form>
+				<div className="row mb-2">
+					{
+						estado === EstadoDatos.CARGANDO ? (<div>Cargando...</div>)
+							:
+							estado === EstadoDatos.VACIO ? (<div>No hay datos</div>)
+								:
+								productos.map((producto) => (
+									(<TarjetaProducto key={producto._id} producto={producto} />)
+								))
+					}
 				</div>
-			</form>
-			<div className="row mb-2">
-				{
-					estado===EstadoDatos.CARGANDO ? (<div>Cargando...</div>) 
-				: 
-					estado===EstadoDatos.VACIO ? (<div>No hay datos</div>) 
-				:
-					productos.map((producto) => (
-						(<TarjetaProducto key={producto._id} producto={producto}/>)
-					))
-				}
-			</div>
-		</main>
+			</main>
+		</div>
+
 	);
 }
 
