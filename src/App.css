@@ -1,0 +1,34 @@
+.App {
+  text-align: left;
+}
+
+.bg-img {
+  /* The image used */
+  background-image: url(./images/BG_Mascotas.png);
+  min-height: 380px;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Needed to position the navbar */
+  position: relative;
+}
+
+.bg-ventanas {
+  /* Imagen usada como fondo de los formularios */
+  background-image: url(./images/bg_Ventanas.jpg);
+  min-height: 780px;
+  /* Queda centrada y no se repite */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* Necesario si se pone un NavBar */
+  position: relative;
+  opacity: 65%;
+}
+
+.myDiv {
+  border: 5px outset rgb(70, 70, 71);
+  background-color: lightblue;
+  text-align: center;
+}
